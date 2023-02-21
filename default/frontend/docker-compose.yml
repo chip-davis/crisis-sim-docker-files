@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  crisis-frontent:
+    image: crisis-frontend:latest
+    container_name: crisis-frontend-container
+    ports:
+      - "3000:80"
+    networks:
+      crisisnetwork:
+        ipv4_address: 172.20.0.8
+networks:
+  crisisnetwork:
+    name: crisisnetwork
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24

@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  crisis-backend:
+    image: crisis-backend:default
+    container_name: crisis-backend-container
+    ports:
+      - "3600:3600"
+    # Connect to network crisisnetwork
+    networks:
+      crisisnetwork:
+        ipv4_address: 172.20.0.3
+
+networks:
+  crisisnetwork:
+    name: crisisnetwork
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
